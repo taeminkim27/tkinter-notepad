@@ -1,3 +1,4 @@
+# tkinter로 메모장 만들기
 from tkinter import *
 from tkinter.filedialog import *
 
@@ -22,13 +23,15 @@ window.title("Notepad")
 window.geometry("400x400")
 window.resizable(False, False)
 
-menu = Menu(window)
-menu_1 = Menu(menu, tearoff=0)
-menu_1.add_command(label="새파일", command= new_file)
+menu = Menu(window) # 메뉴 위젯을 만드는 클래스
+menu_1 = Menu(menu, tearoff=0) #tearoff=0 은 부동객체를 만드는 설정(마우스를 가져다 대면 나오는 표시?)
+menu_1.add_command(label="새파일", command= new_file) 
 menu_1.add_command(label="저장", command= save_file)
 menu_1.add_separator()
 menu_1.add_command(label="종료", command=window.destroy)
 menu.add_cascade(label="파일", menu=menu_1)
+
+# add_command(): 메뉴 항목 생성. label 매개변수는 항목명을 의미하며,command 매개변수는 클릭시 동작을 지정
 
 menu_2 = Menu(menu, tearoff=0)
 menu_2.add_command(label="만든이", command=maker)
